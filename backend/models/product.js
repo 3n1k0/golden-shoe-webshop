@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const productSchema = new mongoose.mongoose.Schema({
+const productSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
@@ -23,6 +23,10 @@ const productSchema = new mongoose.mongoose.Schema({
   },
   brand: {
     type: String,
+    required: true,
+  },
+  id: {
+    type: Number,
     required: true,
   },
 });
