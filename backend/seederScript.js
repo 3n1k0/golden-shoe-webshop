@@ -12,7 +12,7 @@ const importData = async () => {
 
     await Product.insertMany(productData);
 
-    console.log("Data Import Success");
+    console.log("Data Import Success")
 
     process.exit();
   } catch (error) {
