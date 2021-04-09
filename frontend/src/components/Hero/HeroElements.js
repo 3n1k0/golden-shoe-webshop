@@ -5,15 +5,17 @@ export const HeroContainer = styled.div`
   background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.1)),
     url(${ImgBg});
   height: 100vh;
+  width: 100%;
   background-position: 20% 30%;
   background-size: cover;
+
 `;
 
 export const HeroContent = styled.div`
   height: calc(100vh -80vh);
   max-height: 100%;
-  width: 100vw;
-  padding: 0rem calc((100vw - 1300px) / 2);
+  width: 100%;
+
 `;
 export const HeroItems = styled.div`
   display: flex;
@@ -23,14 +25,10 @@ export const HeroItems = styled.div`
   height: 80vh;
   max-height: 100%;
   padding: 0 2rem;
-  width: 650px;
   color: #fff;
   text-transform: uppercase;
   line-height: 1;
 
-  @media screen and (max-width: 650px) {
-    width: 100%;
-  }
 `;
 
 export const HeroH1 = styled.h1`

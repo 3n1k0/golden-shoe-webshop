@@ -1,32 +1,42 @@
 import styled from "styled-components";
 
 export const ProductsContainer = styled.div`
-  width: 100%;
-  height:100%;
-  min-height: 100vh;
-  background: #fff;
-  color: black;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 300px));
+  padding: 20px 20px;
+  grid-gap: 1rem;
+  align-items: center;
+  justify-content: center;
 `;
 
-export const ProductWrapper = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: 0 auto;
-  padding: 100px;
-`;
 
 export const ProductCard = styled.div`
-  margin: 0 2rem;
-  line-height: 2;
-  width: 300px;
+    text-decoration: none;
+    background: transparent;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08), 0 0 6px rgba(0, 0, 0, 0.05);
+    transition: 0.3s transform cubic-bezier(0.155, 1.105, 0.295, 1.12),
+      0.3s box-shadow,
+      0.3s -webkit-transform cubic-bezier(0.155, 1.105, 0.295, 1.12);
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    padding: 20px;
+    margin: 10px;
+
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.06);
+      text-decoration: none;
+
+    }
 `;
 
 export const ProductImage = styled.img`
-  height: 300px;
-  min-width: 300px;
-  max-width: 100%;
-  box-shadow: 8px 8px rgba(0,0,0,0.2);
+width: 100%;
+height: 100%;
+min-height: 280px;
+max-height: 280px;
+object-fit: cover;
 `;
 
 export const ProductTitle = styled.h2`
@@ -50,18 +60,3 @@ export const ProductBrand = styled.p`
   font-family: "Kiwi Maru";
   color: #e9ba23;
 `;
-
-// export const ProductBtn = styled.button`
-//   font-size: 1rem;
-//   padding: 1rem 1rem;
-//   border: none;
-//   background: #e31837;
-//   color: #fff;
-//   transition: 0.2s ease-out;
-
-//   &:hover {
-//     background: #ffc500;
-//     transition: 0.2s ease-out;
-//     cursor: pointer;
-//   }
-// `;

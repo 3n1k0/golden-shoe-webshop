@@ -14,7 +14,6 @@ import { Link } from "react-router-dom";
 const Products = ({ data }) => {
   return (
     <ProductsContainer>
-      <ProductWrapper>
         {data.map((product, index) => {
           return (
             <Link to={`/shop/${product.id}`}>
@@ -29,7 +28,6 @@ const Products = ({ data }) => {
             </Link>
           );
         })}
-      </ProductWrapper>
     </ProductsContainer>
   );
 };

@@ -1,26 +1,26 @@
 import styled from "styled-components";
-import FeaturePic from "../../images/shoe-3.jpg";
 
 export const FeatureContainer = styled.div`
-  background: url(${FeaturePic});
-  height: 100vh;
-  max-height: 800px;
-  width: 500px;
-  background-size: cover;
-  background-position: 0% 100%;
+  height: 100%;
+  width: 100%;
   display: grid;
   place-items: center;
   color: #fff;
   text-align: center;
-  padding: 0 1rem;
+  padding: 3rem;
 
+img{
+  width: 500px;
+  height: 500px;
+  object-fit: cover;
+}
 
   h1 {
     font-size: clamp(2rem, 5vw, 4rem);
     position: relative;
-    background: white;
+    background: pink;
     color: black;
-    top: -100px;
+    top: 100px;
   }
   p {
     margin-bottom: 2rem;
@@ -37,6 +37,7 @@ export const FeatureButton = styled.button`
   color: #fff;
   transition: 0.2s ease-out;
   text-transform: uppercase;
+  margin-top: 50px;
 
   &:hover {
     background: #cf7500;
