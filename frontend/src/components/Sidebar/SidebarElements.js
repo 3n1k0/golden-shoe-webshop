@@ -5,24 +5,26 @@ import { FiShoppingCart } from "react-icons/fi";
 import { CgProfile } from "react-icons/cg";
 import { FaRegHeart } from "react-icons/fa";
 
+
 export const SidebarContainer = styled.aside`
   position: absolute;
   height: 100%;
   width: 350px;
   background: #ffc500;
   padding-top: 100px;
-  display: grid;
   place-items: center;
   top: 0;
   transition: 0.3s ease-in-out;
-  right: ${({ isOpen }) => (isOpen ? "0" : "-1000px")};
+  display: ${({ isOpen }) => (isOpen ? 'grid' : 'none')};
+  right: 0;
   pointer-events: none;
+  z-index: 2;
 
   @media screen and (min-width: 1025px) {
     right: 0;
     height: 80px;
     background: transparent;
-    display: flex;
+   display: flex;
     align-items: center;
     width: 100%;
     padding-left: 100px;

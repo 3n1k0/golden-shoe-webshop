@@ -7,11 +7,10 @@ export const FeatureContainer = styled.div`
   place-items: center;
   color: #fff;
   text-align: center;
-  padding: 3rem;
+  padding-bottom: 3rem;
 
 img{
-  width: 500px;
-  height: 500px;
+  width: 100%;
   object-fit: cover;
 }
 

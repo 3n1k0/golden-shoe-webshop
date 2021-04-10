@@ -49,7 +49,7 @@ export const MagnifyingGlass = styled(GiMagnifyingGlass)`
   right: 50px;
   top: 35px;
   color: black;
-  z-index: 20;
+  z-index: 1;
 `;
 
 

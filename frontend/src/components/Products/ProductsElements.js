@@ -13,7 +13,7 @@ export const ProductsContainer = styled.div`
 export const ProductCard = styled.div`
     text-decoration: none;
     background: transparent;
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08), 0 0 6px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.08), 0 0 3px rgba(0, 0, 0, 0.05);
     transition: 0.3s transform cubic-bezier(0.155, 1.105, 0.295, 1.12),
       0.3s box-shadow,
       0.3s -webkit-transform cubic-bezier(0.155, 1.105, 0.295, 1.12);
@@ -22,6 +22,7 @@ export const ProductCard = styled.div`
     place-items: center;
     padding: 20px;
     margin: 10px;
+    color: black;
 
     &:hover {
       transform: scale(1.05);
@@ -50,11 +51,12 @@ export const ProductInfo = styled.div`
 `;
 
 export const ProductPrice = styled.p`
-  font-size: 1.2rem;
+  font-size: 1em;
+  padding-top: 10px;
 `;
 
 export const ProductBrand = styled.p`
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   font-weight: bold;
   letter-spacing: 1px;
   font-family: "Kiwi Maru";

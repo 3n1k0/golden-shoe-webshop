@@ -1,7 +1,16 @@
 import React from "react";
+import { ProductImage } from "./ProductPage.js";
+import { GlobalStyle } from "../../globalStyles";
+import Hero from "../../components/Hero";
 
 const ProductPage = () => {
-  return <div><h1>Product Page</h1></div>;
+  return (
+    <div>
+      <GlobalStyle />
+      <Hero/>
+      <ProductImage />
+    </div>
+  );
 };
 
 export default ProductPage;
