@@ -13,15 +13,11 @@ export const Nav = styled.nav`
 
 export const NavLink = styled(Link)`
   color: #fff;
-  font-size: 1.8rem;
   display: flex;
   text-decoration: none;
   cursor: pointer;
   padding: 20px;
 
-  @media screen and (max-width: 400px) {
-
-  }
 `;
 
 export const NavIcon = styled.div`
@@ -41,7 +37,38 @@ export const Bars = styled(FaBars)`
 `;
 
 export const ShoppingCart = styled(FiShoppingCart)`
-font-size: 1em;
-position: relative;
-right: 100px;
+font-size: 1.5em;
+`
+
+export const CartContainer = styled.div`
+  width: 100%;
+  padding: 15px;
+  height: 40px;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  position: relative;
+  right: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.5);
+  }
+
+  p {
+    font-size: 1em;
+    padding-left: 10px;
+    padding-right: 3px;
+  }
+`; 
+
+export const Quantity = styled.div`
+color: black;
+width: 24px;
+height: 24px;
+background-color: white;
+border-radius: 50%;
+display: grid;
+place-items: center;
 `

@@ -4,7 +4,7 @@ import featureImage from './featured4.jpeg'
 const Features = () => {
   return (
     <FeatureContainer>
-      <h1>#OOTD #</h1>
+      <h1>#OOTD </h1>
       <img src={featureImage}/>
       <FeatureButton>Shop the look</FeatureButton>
     </FeatureContainer>

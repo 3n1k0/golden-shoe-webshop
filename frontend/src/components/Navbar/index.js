@@ -1,17 +1,30 @@
 import React from "react";
-import { Nav, NavLink, NavIcon, Bars, ShoppingCart } from "./NavbarElements";
+import {
+  Nav,
+  NavLink,
+  NavIcon,
+  Bars,
+  ShoppingCart,
+  CartContainer,
+  Quantity
+} from "./NavbarElements";
 
 const Navbar = ({ toggle }) => {
   return (
     <>
       <Nav>
-        <NavLink to="/">Golden Shoe</NavLink>
+        <NavLink to="/">
+          <h1>Golden Shoe</h1>
+        </NavLink>
         <div>
           <NavIcon onClick={toggle}>
             <Bars />
           </NavIcon>
           <NavLink to="/cart">
-            <ShoppingCart />
+            <CartContainer>
+              <ShoppingCart />
+              <p>Cart</p>(10)
+            </CartContainer>
           </NavLink>
         </div>
       </Nav>
