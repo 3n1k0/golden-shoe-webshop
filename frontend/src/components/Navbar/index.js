@@ -18,7 +18,7 @@ const Navbar = ({ toggle, text }) => {
         </NavLink>
         <SearchContainer>
           <MagnifyingGlass />
-          <SearchBar />
+          <SearchBar placeholder="search articles and ideas" />
         </SearchContainer>
         <NavIcon onClick={toggle}>
           <Bars />

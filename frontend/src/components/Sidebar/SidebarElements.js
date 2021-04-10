@@ -5,9 +5,9 @@ import { FiShoppingCart } from "react-icons/fi";
 import { CgProfile } from "react-icons/cg";
 import { FaRegHeart } from "react-icons/fa";
 
-
 export const SidebarContainer = styled.aside`
-  position: fixed;
+  position: absolute;
+  height: 100%;
   width: 350px;
   background: #ffc500;
   padding-top: 100px;
@@ -16,6 +16,7 @@ export const SidebarContainer = styled.aside`
   top: 0;
   transition: 0.3s ease-in-out;
   right: ${({ isOpen }) => (isOpen ? "0" : "-1000px")};
+  pointer-events: none;
 
   @media screen and (min-width: 1025px) {
     right: 0;
@@ -53,6 +54,10 @@ export const ProfileButton = styled(CgProfile)`
   @media screen and (min-width: 1025px) {
     color: white;
   }
+
+  &:hover {
+    color: gold;
+  }
 `;
 export const LikeButton = styled(FaRegHeart)`
   color: black;
@@ -60,6 +65,10 @@ export const LikeButton = styled(FaRegHeart)`
   margin: 10px;
   @media screen and (min-width: 1025px) {
     color: white;
+  }
+
+  &:hover {
+    color: gold;
   }
 `;
 
@@ -86,6 +95,7 @@ export const SidebarMenu = styled.div`
   display: grid;
   place-items: center;
   height: 100%;
+  pointer-events: auto;
 
   @media screen and (min-width: 1025px) {
     display: flex;
@@ -104,7 +114,7 @@ export const SidebarLink = styled(Link)`
   margin: 20px;
 
   &:hover {
-    color: #cf7500;
+    color: gold;
     transition: 0.2s ease-in-out;
   }
 
@@ -174,11 +184,16 @@ export const CartContainer = styled.div`
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  pointer-events: auto;
 
   p {
     font-size: 1em;
     padding-left: 10px;
     padding-right: 3px;
+  }
+
+  &:hover {
+    color: gold;
   }
 `;
 
@@ -202,4 +217,5 @@ export const StyledLink = styled(Link)`
 
 export const IconContainer = styled.div`
   display: flex;
+  pointer-events: auto;
 `;

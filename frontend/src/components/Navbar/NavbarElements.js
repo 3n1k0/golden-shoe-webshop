@@ -49,7 +49,7 @@ export const MagnifyingGlass = styled(GiMagnifyingGlass)`
   right: 50px;
   top: 35px;
   color: black;
-  z-index: 1100;
+  z-index: 20;
 `;
 
 
@@ -62,14 +62,14 @@ export const SearchBar = styled.input`
   margin: 20px;
   display: flex;
   position: relative;
-  z-index: 1000;
+  
 
 
   @media screen and (min-width: 1025px) {
-    width: 330px;
+    width: 280px;
 
     &:focus {
-      width: 500px;
+      width: 350px;
     }
   }
 `;
