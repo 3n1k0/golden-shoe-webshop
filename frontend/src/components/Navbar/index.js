@@ -14,7 +14,7 @@ const Navbar = ({ toggle, text }) => {
     <>
       <Nav>
         <NavLink to="/">
-          <h1>G.S.</h1>
+          <h1>GS</h1>
         </NavLink>
         <SearchContainer>
           <MagnifyingGlass />

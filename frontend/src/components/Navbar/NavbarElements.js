@@ -16,7 +16,7 @@ export const Nav = styled.nav`
 `;
 
 export const NavLink = styled(Link)`
-  color: #fff;
+  color: gold;
   display: flex;
   text-decoration: none;
   cursor: pointer;

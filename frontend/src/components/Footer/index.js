@@ -16,7 +16,7 @@ const Footer = () => {
       <FooterWrap>
         <SocialMedia>
           <SocialMediaWrap>
-            <SocialLogo to="/">Golden Shoe</SocialLogo>
+            <SocialLogo to="/">Golden Shoe</SocialLogo><p>All rights reserved. Golden Shoe 2021.</p>
             <SocialIcons>
               <SocialIconLink
                 href="/"

@@ -29,10 +29,15 @@ export const SocialMediaWrap = styled.div`
   @media screen and (max-width: 1025px) {
     flex-direction: column;
   }
+
+  p {
+    opacity: 0.6;
+    font-size: 10px;
+  }
 `;
 
 export const SocialLogo = styled(Link)`
-  color: #fff;
+  color: gold;
   justify-self: start;
   cursor: pointer;
   text-decoration: none;
@@ -41,7 +46,11 @@ export const SocialLogo = styled(Link)`
   align-items: center;
   margin-bottom: 16px;
   font-weight: bold;
+
+
 `;
+
+
 
 export const SocialIcons = styled.div`
   display: flex;
