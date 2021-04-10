@@ -4,9 +4,15 @@ import {
   SidebarLink,
   SidebarMenu,
   CloseIcon,
-  SidebarRoute,
   SideBtnWrap,
   Icon,
+  ShoppingCart,
+  CartContainer,
+  ProfileButton,
+  Contact,
+  StyledLink,
+  LikeButton,
+  IconContainer,
 } from "./SidebarElements";
 
 const Sidebar = ({ isOpen, toggle }) => {
@@ -21,9 +27,25 @@ const Sidebar = ({ isOpen, toggle }) => {
           <SidebarLink to="/">Kids</SidebarLink>
           <SidebarLink to="/">Men</SidebarLink>
         </SidebarMenu>
-        <SideBtnWrap>
-          <SidebarRoute to="/contact">Contact Us</SidebarRoute>
-        </SideBtnWrap>
+        <span>
+          <StyledLink to="/cart">
+            <CartContainer>
+              <ShoppingCart />
+              <p>Cart</p>(10)
+            </CartContainer>
+          </StyledLink>
+          <IconContainer>
+            <StyledLink to="/profile">
+              <ProfileButton />
+            </StyledLink>
+            <StyledLink to="/likes">
+              <LikeButton />
+            </StyledLink>
+          </IconContainer>
+          <SideBtnWrap>
+            <Contact to="/contact">Contact Us</Contact>
+          </SideBtnWrap>
+        </span>
       </SidebarContainer>
     </>
   );

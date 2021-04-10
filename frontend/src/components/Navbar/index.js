@@ -4,29 +4,25 @@ import {
   NavLink,
   NavIcon,
   Bars,
-  ShoppingCart,
-  CartContainer,
-  Quantity
+  SearchBar,
+  MagnifyingGlass,
+  SearchContainer,
 } from "./NavbarElements";
 
-const Navbar = ({ toggle }) => {
+const Navbar = ({ toggle, text }) => {
   return (
     <>
       <Nav>
         <NavLink to="/">
-          <h1>Golden Shoe</h1>
+          <h1>G.S.</h1>
         </NavLink>
-        <div>
-          <NavIcon onClick={toggle}>
-            <Bars />
-          </NavIcon>
-          <NavLink to="/cart">
-            <CartContainer>
-              <ShoppingCart />
-              <p>Cart</p>(10)
-            </CartContainer>
-          </NavLink>
-        </div>
+        <SearchContainer>
+          <MagnifyingGlass />
+          <SearchBar />
+        </SearchContainer>
+        <NavIcon onClick={toggle}>
+          <Bars />
+        </NavIcon>
       </Nav>
     </>
   );
