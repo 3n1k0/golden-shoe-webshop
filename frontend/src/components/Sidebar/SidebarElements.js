@@ -113,7 +113,7 @@ export const SidebarLink = styled(Link)`
   text-decoration: none;
   color: #000;
   cursor: pointer;
-  margin: 20px;
+  margin: 0;
 
   &:hover {
     color: gold;
@@ -123,6 +123,7 @@ export const SidebarLink = styled(Link)`
   @media screen and (min-width: 1025px) {
     color: white;
     font-size: 1.3rem;
+    margin: 20px;
   }
 `;
 
