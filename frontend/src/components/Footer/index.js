@@ -16,8 +16,11 @@ const Footer = () => {
       <FooterWrap>
         <SocialMedia>
           <SocialMediaWrap>
-            <SocialLogo to="/">Golden Shoe</SocialLogo><p>All rights reserved. Golden Shoe 2021.</p>
+            <SocialLogo to="/">Golden Shoe</SocialLogo>
+            <p>All rights reserved. Golden Shoe 2021.</p>
+
             <SocialIcons>
+              <h1>Find us on</h1>
               <SocialIconLink
                 href="/"
                 target="_blank"
