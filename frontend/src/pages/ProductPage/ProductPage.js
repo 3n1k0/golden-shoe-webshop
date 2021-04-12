@@ -1,16 +1,16 @@
-import Image from "../../images/shoe-2.jpg";
 import styled from "styled-components";
 import { BiHeart } from "react-icons/bi";
+import { RiStarSFill } from "react-icons/ri";
+import { FiTruck } from "react-icons/fi";
+import { GiReturnArrow } from "react-icons/gi";
+import {NavLink} from 'react-router-dom'
 
 export const SizeSelector = styled.select`
-  display: block;
   font-size: 16px;
-  font-weight: 700;
   color: #444;
   line-height: 1.3;
   padding: 0.6em 1.4em 0.5em 0.8em;
-  max-width: 100%;
-  box-sizing: border-box;
+  width: 100%;
   margin: 0;
   border: 1px solid #aaa;
   box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.04);
@@ -24,7 +24,7 @@ export const SizeSelector = styled.select`
   background-repeat: no-repeat, repeat;
   background-position: right 0.7em top 50%, 0 0;
   background-size: 0.65em auto, 100%;
-  outline: none;
+  margin-top: 5px;
 
   &:focus {
     border-color: #aaa;
@@ -35,19 +35,26 @@ export const SizeSelector = styled.select`
   }
 `;
 export const AddToCartButton = styled.button`
-  font-weight: 700;
-  width: 250px;
-  background-color: #018849;
+  display: inline-block;
+  margin-bottom: 0;
   text-align: center;
-  color: #fff;
-  letter-spacing: 2px;
-  height: 41px;
-  text-transform: uppercase;
-  border: 0;
   cursor: pointer;
-  padding: 0;
-  font-size: 14px;
+  background: #222;
+  border: 1px solid transparent;
+  border-radius: 0;
+  color: #fff;
+  white-space: nowrap;
+  text-decoration: none;
+  text-transform: uppercase;
+  outline: 0;
+  line-height: 34px;
+  padding: 7px 20px;
+  font-size: 15px;
+  transition: background 0.2s, border-color, 0.2s, color 0.2s;
 
+  &:hover {
+
+  }
 `;
 export const StyledLikeButton = styled(BiHeart)`
   color: black;
@@ -75,14 +82,7 @@ export const FirstBigContainer = styled.div`
   @media screen and (min-width: 1025px) {
     margin: 0 auto;
     flex-flow: row;
-  }
-
-  h1 {
-    padding-top: 20px;
-  }
-
-  p {
-    padding: 20px;
+    align-items: flex-start;
   }
 
   img {
@@ -96,10 +96,23 @@ export const FirstBigContainer = styled.div`
     }
   }
 
+  h2 {
+    font-size: 20px;
+    line-height: 1.3;
+    letter-spacing: 1.3px;
+    padding-bottom: 12px;
+  }
+
   span {
-    display: grid;
-    place-items: center;
-    text-align: center;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  h5 {
+    font-size: 10px;
+    padding: 5px;
   }
 `;
 
@@ -125,18 +138,83 @@ export const SecondBigContainer = styled.div`
   }
 `;
 
-
-export const ShippingInformation = styled.div`
-
-`
-
-export const ReturnPolicy = styled(ShippingInformation)`
-
-`
-
 export const AddToCartContainer = styled.div`
   display: flex;
   margin-top: 50px;
   align-items: center;
   justify-content: center;
+  width: 120%;
+`;
+
+export const Stars = styled(RiStarSFill)`
+  color: orange;
+`;
+export const Reviews = styled.div`
+display: flex;
+padding-bottom: 20px;
+
+p{
+  font-size: 10px;
+  text-decoration: underline;
+}
+`
+
+export const Price = styled.p`
+  font-size: 24px;
+  font-weight: 700;
+  font-family: "Arial Black";
+  padding-bottom: 20px;
+`;
+
+export const Color = styled.p`
+padding: 10px;
+font-size: 13px;
+`;
+
+export const ViewCart = styled(NavLink)`
+font-size: 13px;
+color: black;
+padding: 20px;
+position: relative;
+right: 25px;
+text-decoration: underline;
+`
+
+export const Truck = styled(FiTruck)`
+  color: black;
+  font-size: 1.5em;
+  width: 100px;
+  position: relative;
+  left: 0;
+`;
+
+export const Arrow = styled(GiReturnArrow)`
+  color: black;
+  width: 100px;
+  font-size: 1.5em;
+  position: relative;
+  left: 0;
+`;
+
+export const ShippingInformation = styled.div`
+  color: #767676;
+  font-size: 12px;
+  line-height: 1;
+  background: rgb(247, 248, 250);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  padding: 15px;
+
+  p {
+    line-height: 1.3;
+    width: 200px;
+    height: 90px;
+  
+  }
+`;
+
+export const ReturnPolicy = styled(ShippingInformation)`
+padding-bottom: 30px;
 `;

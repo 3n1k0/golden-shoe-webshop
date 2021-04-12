@@ -8,7 +8,14 @@ import {
   SecondBigContainer,
   ShippingInformation,
   ReturnPolicy,
-  AddToCartContainer
+  AddToCartContainer,
+  Reviews,
+  Stars,
+  Price,
+  Color,
+  ViewCart,
+  Truck,
+  Arrow
 } from "./ProductPage.js";
 import { GlobalStyle } from "../../config/globalStyles";
 import FullNavbar from "../../components/FullNavbar";
@@ -41,10 +48,22 @@ const ProductPage = (props) => {
           <img src={product.imageUrl} />
         </ImageContainer>
         <span>
-          <h1>{product.name}</h1>
-          <p>{product.price} Ercsi</p>
-          <p>Color</p>
+          <h2>{product.name}</h2>
+          <h5>SKU: {product._id}</h5>
+          <Reviews>
+            <Stars />
+            <Stars />
+            <Stars />
+            <Stars />
+            <Stars />
+            <p>(149 reviews)</p>
+          </Reviews>
+          <Price>{product.price} Ercsi</Price>
+          <Color>
+            <b>Color:</b> valoszinu
+          </Color>
 
+          <p>Size (EU)</p>
           <SizeSelector>
             <option>37</option>
             <option>39</option>
@@ -56,15 +75,18 @@ const ProductPage = (props) => {
             <StyledLikeButton />
           </AddToCartContainer>
 
-          <NavLink to="/cart">View Shopping Cart(10)</NavLink>
+          <ViewCart to="/cart">View Shopping Cart(10)</ViewCart>
           <NavLink to="/liked"></NavLink>
           <ShippingInformation>
+            <Truck/>
             <p>
               Free Shipping Free standard shipping on orders over 29,00€
               Estimated to be delivered on 26/04/2021 - 29/04/2021.
             </p>
+          
           </ShippingInformation>
           <ReturnPolicy>
+            <Arrow/>
             Return Policy
             <br /> Learn more
           </ReturnPolicy>
