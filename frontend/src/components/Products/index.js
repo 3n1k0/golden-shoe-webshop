@@ -16,9 +16,9 @@ const Products = ({ data }) => {
     <ProductsContainer>
         {data.map((product, index) => {
           return (
-            <Link to={`/shop/${product.id}`}>
+            <Link to={`/shop/${product._id}`}>
               <ProductCard key={index}>
-                <ProductImage src={product.img} alt={product.alt} />
+                <ProductImage src={product.imageUrl} alt={product.alt} />
                 <ProductInfo>
                   <ProductPrice>{product.price}</ProductPrice>
                   <ProductTitle>{product.name}</ProductTitle>

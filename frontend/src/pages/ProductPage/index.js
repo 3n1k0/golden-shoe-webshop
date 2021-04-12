@@ -5,20 +5,41 @@ import {
   AddToCartButton,
   StyledLikeButton,
   ProductContainer,
-  ViewCart
+  ViewCart,
 } from "./ProductPage.js";
 import { GlobalStyle } from "../../config/globalStyles";
 import FullNavbar from "../../components/FullNavbar";
 import { NavLink } from "react-router-dom";
+import { getProductDetails } from "../../redux/actions/productActions.js";
+import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 
-const ProductPage = () => {
+
+
+const ProductPage = (props) => {
+
+  const dispatch = useDispatch();
+  const productDetails = useSelector((state) => state.getProductDetails);
+  const { product, loading, error } = productDetails;
+
+console.log(props, productDetails)
+
+
+  useEffect(() => {
+    dispatch(getProductDetails(props.match.params.id));
+  }, [dispatch]);
+
+  if (loading) {
+    return <div>Loading...</div>
+  }
+
   return (
     <div>
       <GlobalStyle />
       <FullNavbar />
       <ProductContainer>
         <ProductImage />
-        <h1>title</h1>
+        <h1>{product.name}</h1>
         <p>description</p>
         <p>price</p>
         <SizeSelector>

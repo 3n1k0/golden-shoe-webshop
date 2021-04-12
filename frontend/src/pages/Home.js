@@ -1,12 +1,15 @@
 import React from "react";
 import { GlobalStyle } from "../config/globalStyles";
 import Products from "../components/Products";
-import { productData } from "../components/Products/data";
 import Features from "../components/Feature";
 import Footer from "../components/Footer";
 import styled from "styled-components";
 import ImgBg from "../images/shoe-5.jpeg";
 import FullNavbar from "../components/FullNavbar/index.js";
+import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+
+import { getProducts as listProducts } from "../redux/actions/productActions";
 
 export const HeroContainer = styled.div`
   background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.1)),
@@ -66,7 +69,18 @@ export const HeroBtn = styled.button`
   }
 `;
 
+
+
 function Home() {
+  const dispatch = useDispatch();
+  const getProducts = useSelector((state) => state.getProducts);
+  const { products, loading, error } = getProducts;
+
+
+  useEffect(() => {
+    dispatch(listProducts());
+  }, [dispatch]);
+
   return (
     <>
       <GlobalStyle />
@@ -80,7 +94,8 @@ function Home() {
           </HeroItems>
         </HeroContent>
       </HeroContainer>
-      <Products data={productData} />
+  
+      <Products data={products} />
       <Features />
       <Footer />
     </>
