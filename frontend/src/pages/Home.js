@@ -6,7 +6,7 @@ import Features from "../components/Feature";
 import Footer from "../components/Footer";
 import styled from "styled-components";
 import ImgBg from "../images/shoe-5.jpeg";
-import FullNavbar from "../components/FullNavbar.js";
+import FullNavbar from "../components/FullNavbar/index.js";
 
 export const HeroContainer = styled.div`
   background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.1)),

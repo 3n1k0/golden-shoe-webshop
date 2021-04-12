@@ -5,22 +5,33 @@ import Image from "../../images/shoe-2.jpg";
 
 export const CartContainer = styled.div`
 width: 100%;
+display: grid;
+place-items: center;
+
+h1{
+    padding: 50px;
+}
 `
 
 export const CartItem = styled.div`
   width: 100%;
   padding: 1em;
-  margin-bottom: 8px;
   display: flex;
   gap: 8px;
   background: white;
   border-radius: 2px;
-  place-items: center;
+  justify-content: space-evenly;
+  align-items: center;
+  background: whitesmoke;
 
   select {
     padding: 10px 17px;
+    height: 50px;
   }
+
 `;
+
+
 export const DeleteButton = styled.div`
 outline: none;
 display: flex;
@@ -46,5 +57,15 @@ export const ItemImage = styled.img.attrs(() => ({ src: Image }))`
 width: 150px;
 `
 
+export const OrderTotal = styled.div`
+width: 100%;
+display: grid;
+place-items: center;
+background-color: rgba(230, 230, 230, 0.7);
+height: 100%;
+padding: 50px;
 
-
+p{
+    font-weight: bolder;
+}
+`

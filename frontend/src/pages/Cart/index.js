@@ -1,7 +1,16 @@
 import React from "react";
-import { CartContainer, DeleteButton, Trashcan, ItemImage, CartItem } from "./Cart.js";
+import {
+  CartContainer,
+  DeleteButton,
+  Trashcan,
+  ItemImage,
+  CartItem,
+  OrderTotal,
+} from "./Cart.js";
 import FullNavbar from "../../components/FullNavbar";
-import {GlobalStyle} from '../../config/globalStyles'
+import { GlobalStyle } from "../../config/globalStyles";
+import { AddToCartButton } from "../ProductPage/ProductPage.js";
+import { NavLink } from "react-router-dom";
 
 const Cart = () => {
   return (
@@ -9,6 +18,7 @@ const Cart = () => {
       <FullNavbar />
       <GlobalStyle />
       <CartContainer>
+        <h1>Shopping Cart</h1>
         <CartItem>
           <h2>Item name</h2>
           <p>4 pcs.</p>
@@ -24,6 +34,11 @@ const Cart = () => {
             <Trashcan />
           </DeleteButton>
         </CartItem>
+        <OrderTotal>
+          <p>Order total: 348234</p>
+          <AddToCartButton>Proceed to checkout</AddToCartButton>
+          <NavLink to="/">Back to shop</NavLink>
+        </OrderTotal>
       </CartContainer>
     </>
   );
