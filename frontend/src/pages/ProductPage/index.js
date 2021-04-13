@@ -15,30 +15,35 @@ import {
   Color,
   ViewCart,
   Truck,
-  Arrow
+  Arrow,
+  Status
 } from "./ProductPage.js";
 import { GlobalStyle } from "../../config/globalStyles";
 import FullNavbar from "../../components/FullNavbar";
 import { NavLink } from "react-router-dom";
 import { getProductDetails } from "../../redux/actions/productActions.js";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import Footer from '../../components/Footer'
+import Footer from "../../components/Footer";
+import { addToCart } from "../../redux/actions/cartActions";
 
-const ProductPage = (props) => {
+const ProductPage = ({ match }, { history }) => {
+  const [qty, setQty] = useState(1);
   const dispatch = useDispatch();
+
   const productDetails = useSelector((state) => state.getProductDetails);
   const { product, loading, error } = productDetails;
 
-  console.log(props, productDetails);
-
   useEffect(() => {
-    dispatch(getProductDetails(props.match.params.id));
-  }, [dispatch]);
+    if (product && match.params.id !== product._id) {
+      dispatch(getProductDetails(match.params.id));
+    }
+  }, [dispatch, product, match]);
 
   if (loading) {
     return <div>Loading...</div>;
   }
+  
 
   return (
     <div>
@@ -63,16 +68,23 @@ const ProductPage = (props) => {
           <Color>
             <b>Color:</b> valoszinu
           </Color>
+          <Status>
+            Status: {product.countInStock > 0 ? "In Stock" : "Out of Stock"}
+          </Status>
 
           <p>Size (EU)</p>
-          <SizeSelector>
-            <option>37</option>
-            <option>39</option>
-            <option>40</option>
-            <option>43</option>
+          <SizeSelector value={qty} onChange={(e) => setQty(e.target.value)}>
+            {[...Array(product.countInStock).keys()].map((x) => (
+              <option key={x + 1} value={x + 1}>
+                {x + 1}
+              </option>
+            ))}
           </SizeSelector>
           <AddToCartContainer>
-            <AddToCartButton>Add to cart</AddToCartButton>
+            <AddToCartButton>
+              Add to cart
+            </AddToCartButton>
+            {[...Array(product.countInStock).keys()].map((x) => {})}
             <StyledLikeButton />
           </AddToCartContainer>
 

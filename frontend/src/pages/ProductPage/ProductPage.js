@@ -3,7 +3,8 @@ import { BiHeart } from "react-icons/bi";
 import { RiStarSFill } from "react-icons/ri";
 import { FiTruck } from "react-icons/fi";
 import { GiReturnArrow } from "react-icons/gi";
-import {NavLink} from 'react-router-dom'
+import { NavLink } from "react-router-dom";
+
 
 export const SizeSelector = styled.select`
   font-size: 16px;
@@ -53,7 +54,6 @@ export const AddToCartButton = styled.button`
   transition: background 0.2s, border-color, 0.2s, color 0.2s;
 
   &:hover {
-
   }
 `;
 export const StyledLikeButton = styled(BiHeart)`
@@ -65,7 +65,7 @@ export const StyledLikeButton = styled(BiHeart)`
   padding: 5px;
   margin-left: 20px;
 
-  &:hover{
+  &:hover {
     transform: scale(1.1);
   }
 `;
@@ -150,14 +150,14 @@ export const Stars = styled(RiStarSFill)`
   color: orange;
 `;
 export const Reviews = styled.div`
-display: flex;
-padding-bottom: 20px;
+  display: flex;
+  padding-bottom: 20px;
 
-p{
-  font-size: 10px;
-  text-decoration: underline;
-}
-`
+  p {
+    font-size: 10px;
+    text-decoration: underline;
+  }
+`;
 
 export const Price = styled.p`
   font-size: 24px;
@@ -167,18 +167,18 @@ export const Price = styled.p`
 `;
 
 export const Color = styled.p`
-padding: 10px;
-font-size: 13px;
+  padding: 10px;
+  font-size: 13px;
 `;
 
 export const ViewCart = styled(NavLink)`
-font-size: 13px;
-color: black;
-padding: 20px;
-position: relative;
-right: 25px;
-text-decoration: underline;
-`
+  font-size: 13px;
+  color: black;
+  padding: 20px;
+  position: relative;
+  right: 25px;
+  text-decoration: underline;
+`;
 
 export const Truck = styled(FiTruck)`
   color: black;
@@ -211,10 +211,13 @@ export const ShippingInformation = styled.div`
     line-height: 1.3;
     width: 200px;
     height: 90px;
-  
   }
 `;
 
 export const ReturnPolicy = styled(ShippingInformation)`
-padding-bottom: 30px;
+  padding-bottom: 30px;
 `;
+
+export const Status = styled.div`
+display: flex;
+`
