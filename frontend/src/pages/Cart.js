@@ -14,9 +14,9 @@ export const CartContainer = styled.div`
   width: 100%;
   display: grid;
   place-items: center;
-  height: 100vh;
+  min-height: 100vh;
 
-  h1 {
+  h2 {
     padding: 50px;
   }
 `;
@@ -25,12 +25,13 @@ export const OrderTotal = styled.div`
   width: 100%;
   display: grid;
   place-items: center;
-  background-color: rgba(230, 230, 230, 0.7);
+  background-color: rgba(230, 230, 230, 0.6);
   height: 100%;
   padding: 50px;
 
   p {
     font-weight: bolder;
+    padding: 10px;
   }
 `;
 
@@ -68,9 +69,9 @@ const CartScreen = () => {
         <h2>Shopping Cart</h2>
 
         {cartItems.length === 0 ? (
-          <div>
-            Your Cart Is Empty <Link to="/">Go Back</Link>
-          </div>
+          <h1>
+            Your Cart Is Empty <Link to="/">Back To Shop</Link>
+          </h1>
         ) : (
           cartItems.map((item) => (
             <CartItem

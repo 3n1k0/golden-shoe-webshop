@@ -14,7 +14,6 @@ export const ProductsContainer = styled.div`
 export const ProductCard = styled.div`
   text-decoration: none;
   background: transparent;
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.08), 0 0 3px rgba(0, 0, 0, 0.05);
   cursor: pointer;
   display: grid;
   place-items: center;
@@ -23,19 +22,24 @@ export const ProductCard = styled.div`
   color: black;
   min-height: 450px;
   max-height: 450px;
+
+  p{
+    height: 30px;
+  }
 `;
 
 export const ProductImage = styled.img`
   width: 100%;
   height: 100%;
-  min-height: 300px;
-  max-height: 300px;
+  min-height: 280px;
+  max-height: 280px;
   object-fit: cover;
 `;
 
 export const ProductTitle = styled.h2`
   font-weight: 400;
   font-size: 1.2rem;
+  padding-top: 10px;
 `;
 export const ProductInfo = styled.div`
   display: flex;
@@ -45,7 +49,7 @@ export const ProductInfo = styled.div`
 
 export const ProductPrice = styled.p`
   font-size: 1em;
-  padding-top: 10px;
+  padding: 20px 0px; 
 `;
 
 export const ProductBrand = styled.p`
@@ -65,9 +69,8 @@ const Products = ({ data }) => {
             <ProductCard key={index}>
               <ProductImage src={product.imageUrl} alt={product.alt} />
               <ProductInfo>
-                <ProductPrice>€{product.price}</ProductPrice>
                 <ProductTitle>{product.name}</ProductTitle>
-                <ProductBrand>{product.brand}</ProductBrand>
+                <ProductPrice>{product.price}.-</ProductPrice>
               </ProductInfo>
             </ProductCard>
           </Link>

@@ -52,32 +52,24 @@ export const SidebarContainer = styled.aside`
 `;
 
 export const ProfileButton = styled(CgProfile)`
-  color: black;
+  color: #291e15;
   font-size: 1.5em;
   margin: 10px;
   @media screen and (min-width: 1025px) {
     color: white;
-  }
-
-  &:hover {
-    color: rgb(203, 193, 169);
   }
 `;
 export const LikeButton = styled(FaRegHeart)`
-  color: black;
+  color: #291e15;
   font-size: 1.5em;
   margin: 10px;
   @media screen and (min-width: 1025px) {
     color: white;
-  }
-
-  &:hover {
-    color: rgb(203, 193, 169);
   }
 `;
 
 export const CloseIcon = styled(FaTimes)`
-  color: #000;
+  color: #291e15;
 
   @media screen and (min-width: 1025px) {
     display: none;
@@ -113,12 +105,12 @@ export const SidebarLink = styled(Link)`
   list-style: none;
   transition: 0.2s ease-in-out;
   text-decoration: none;
-  color: #000;
+  color: #291e15;
   cursor: pointer;
   margin: 0;
 
   &:hover {
-    color: rgb(203, 193, 169);
+    color: black;
     transition: 0.2s ease-in-out;
   }
 
@@ -159,7 +151,7 @@ export const Contact = styled.button`
 `;
 
 export const Login = styled(Link)`
-  color: black;
+  color: #291e15;
   text-decoration: none;
 
   @media screen and (min-width: 1025px) {
@@ -196,13 +188,9 @@ export const CartContainer = styled.div`
     padding-left: 10px;
     padding-right: 3px;
   }
-
-  &:hover {
-    color: rgb(203, 193, 169);
-  }
 `;
 export const StyledLink = styled(Link)`
-  color: black;
+  color: #291e15;
   @media screen and (min-width: 1025px) {
     color: white;
     padding: 10px;

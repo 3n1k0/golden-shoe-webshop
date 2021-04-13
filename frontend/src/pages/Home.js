@@ -13,14 +13,19 @@ import { getProducts as listProducts } from "../redux/actions/productActions";
 export const HeroContainer = styled.div`
   background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.1)),
     url(${ImgBg});
+  background-position: 10% 30%;
   height: 100vh;
   width: 100%;
-  background-position: 20% 30%;
+  background-position: 70% 90%;
   background-size: cover;
+  padding: 0px;
+
+  @media screen and(min-width: 1025px) {
+    padding: 100px;
+  }
 `;
 
 export const HeroContent = styled.div`
-  height: calc(100vh -80vh);
   max-height: 100%;
   width: 100%;
 `;
@@ -41,7 +46,6 @@ export const HeroH1 = styled.h1`
   font-size: clamp(2rem, 10vw, 3.5rem);
   margin-bottom: 1rem;
   box-shadow: 3px 5px #e9ba23;
-  letter-spacing: 3px;
   font-family: "Playfair Display", serif;
 `;
 

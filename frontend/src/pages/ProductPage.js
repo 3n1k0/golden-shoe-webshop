@@ -13,12 +13,21 @@ import { RiStarSFill } from "react-icons/ri";
 import { FiTruck } from "react-icons/fi";
 import { GiReturnArrow } from "react-icons/gi";
 
+export const DropDownContainer = styled.div`
+display: flex;
+align-items: center;
+
+p{
+  padding: 10px;
+}
+`
+
 export const SizeSelector = styled.select`
   font-size: 16px;
   color: #444;
   line-height: 1.3;
   padding: 0.6em 1.4em 0.5em 0.8em;
-  width: 70%;
+  width: 20%;
   margin: 0;
   border: 1px solid #aaa;
   box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.04);
@@ -122,6 +131,10 @@ export const FirstBigContainer = styled.div`
     font-size: 10px;
     padding: 5px;
   }
+
+  div{
+    display: flex;
+  }
 `;
 
 export const ImageContainer = styled.div`
@@ -171,7 +184,7 @@ export const Price = styled.p`
   font-size: 24px;
   font-weight: 700;
   font-family: "Arial Black";
-  padding-bottom: 20px;
+  padding-bottom: 5px;
 `;
 
 export const Color = styled.p`
@@ -228,6 +241,7 @@ export const ReturnPolicy = styled(ShippingInformation)`
 
 export const Status = styled.div`
   display: flex;
+  padding-bottom: 10px;
 `;
 
 const ProductPage = ({ match, history }) => {
@@ -253,7 +267,7 @@ const ProductPage = ({ match, history }) => {
   };
 
   return (
-    <div>
+    <>
       <GlobalStyle />
       <FullNavbar />
       <FirstBigContainer>
@@ -271,26 +285,34 @@ const ProductPage = ({ match, history }) => {
             <Stars />
             <p>(149 reviews)</p>
           </Reviews>
-          <Price>EUR {product.price}</Price>
+          <Price>€ {product.price}</Price>
           <Color>
             <b>Color:</b> valoszinu
           </Color>
-          <Status>
-            Status: {product.countInStock > 0 ? "In Stock" : "Out of Stock"}
-          </Status>
-
-          <p>Size (EU)</p>
-          <SizeSelector value={qty} onChange={(e) => setQty(e.target.value)}>
-            {new Array(product.countInStock).fill(0).map((item, index) => (
-              <option key={index + 1} value={index + 1}>
-                {index + 1}
-              </option>
-            ))}
-          </SizeSelector>
+          <DropDownContainer>
+            <p>Quantity</p>
+            <SizeSelector value={qty} onChange={(e) => setQty(e.target.value)}>
+              {new Array(product.countInStock).fill(0).map((item, index) => (
+                <option key={index + 1} value={index + 1}>
+                  {index + 1}
+                </option>
+              ))}
+            </SizeSelector>
+            <p style={{ paddingTop: "20px" }}>Size (EU)</p>
+            <SizeSelector>
+              <option>37</option>
+              <option>38 - out of stock -</option>
+              <option>39</option>
+              <option>41</option>
+              <option>42</option>
+              <option>43 - out of stock -</option>
+            </SizeSelector>
+          </DropDownContainer>
           <AddToCartContainer>
             <AddToCartButton onClick={addToCartHandler}>
               Add to cart
             </AddToCartButton>
+
             <StyledLikeButton />
           </AddToCartContainer>
 
@@ -314,7 +336,7 @@ const ProductPage = ({ match, history }) => {
         <p>{product.description}</p>
       </SecondBigContainer>
       <Footer />
-    </div>
+    </>
   );
 };
 
