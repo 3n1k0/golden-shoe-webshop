@@ -1,10 +1,12 @@
+import React from "react";
+import { useSelector } from "react-redux";
+
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { FaTimes } from "react-icons/fa";
 import { FiShoppingCart } from "react-icons/fi";
 import { CgProfile } from "react-icons/cg";
 import { FaRegHeart } from "react-icons/fa";
-
 
 export const SidebarContainer = styled.aside`
   position: absolute;
@@ -15,7 +17,7 @@ export const SidebarContainer = styled.aside`
   place-items: center;
   top: 0;
   transition: 0.3s ease-in-out;
-  display: ${({ isOpen }) => (isOpen ? 'grid' : 'none')};
+  display: ${({ isOpen }) => (isOpen ? "grid" : "none")};
   right: 0;
   pointer-events: none;
   z-index: 2;
@@ -24,7 +26,7 @@ export const SidebarContainer = styled.aside`
     right: 0;
     height: 80px;
     background: transparent;
-   display: flex;
+    display: flex;
     align-items: center;
     width: 100%;
     padding-left: 100px;
@@ -58,7 +60,7 @@ export const ProfileButton = styled(CgProfile)`
   }
 
   &:hover {
-    color: gold;
+    color: rgb(203, 193, 169);
   }
 `;
 export const LikeButton = styled(FaRegHeart)`
@@ -70,7 +72,7 @@ export const LikeButton = styled(FaRegHeart)`
   }
 
   &:hover {
-    color: gold;
+    color: rgb(203, 193, 169);
   }
 `;
 
@@ -116,7 +118,7 @@ export const SidebarLink = styled(Link)`
   margin: 0;
 
   &:hover {
-    color: gold;
+    color: rgb(203, 193, 169);
     transition: 0.2s ease-in-out;
   }
 
@@ -196,20 +198,9 @@ export const CartContainer = styled.div`
   }
 
   &:hover {
-    color: gold;
+    color: rgb(203, 193, 169);
   }
 `;
-
-export const Quantity = styled.div`
-  color: black;
-  width: 24px;
-  height: 24px;
-  background-color: white;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-`;
-
 export const StyledLink = styled(Link)`
   color: black;
   @media screen and (min-width: 1025px) {
@@ -222,3 +213,48 @@ export const IconContainer = styled.div`
   display: flex;
   pointer-events: auto;
 `;
+
+const Sidebar = ({ isOpen, toggle }) => {
+  const cart = useSelector((state) => state.cart);
+  const { cartItems } = cart;
+
+  const getCartCount = () => {
+    return cartItems.reduce((qty, item) => Number(item.qty) + qty, 0);
+  };
+
+  return (
+    <>
+      <SidebarContainer isOpen={isOpen} onClick={toggle}>
+        <Icon>
+          <CloseIcon></CloseIcon>
+        </Icon>
+        <SidebarMenu>
+          <SidebarLink to="/">Women</SidebarLink>
+          <SidebarLink to="/">Kids</SidebarLink>
+          <SidebarLink to="/">Men</SidebarLink>
+        </SidebarMenu>
+        <span>
+          <StyledLink to="/cart">
+            <CartContainer>
+              <ShoppingCart />
+              <p>Cart</p>&nbsp;({getCartCount()})
+            </CartContainer>
+          </StyledLink>
+          <IconContainer>
+            <StyledLink to="/profile">
+              <ProfileButton />
+            </StyledLink>
+            <StyledLink to="/likes">
+              <LikeButton />
+            </StyledLink>
+          </IconContainer>
+          <SideBtnWrap>
+            <Contact to="/contact">Contact Us</Contact>
+          </SideBtnWrap>
+        </span>
+      </SidebarContainer>
+    </>
+  );
+};
+
+export default Sidebar;

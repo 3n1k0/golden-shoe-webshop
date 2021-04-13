@@ -1,10 +1,17 @@
+import React from "react";
+import { GlobalStyle } from "../config/globalStyles";
+import FullNavbar from "../components/FullNavbar";
+import { NavLink } from "react-router-dom";
+import { getProductDetails } from "../redux/actions/productActions.js";
+import { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import Footer from "../components/FooterElements";
+import { addToCart } from "../redux/actions/cartActions";
 import styled from "styled-components";
 import { BiHeart } from "react-icons/bi";
 import { RiStarSFill } from "react-icons/ri";
 import { FiTruck } from "react-icons/fi";
 import { GiReturnArrow } from "react-icons/gi";
-import { NavLink } from "react-router-dom";
-
 
 export const SizeSelector = styled.select`
   font-size: 16px;
@@ -35,6 +42,7 @@ export const SizeSelector = styled.select`
     outline: none;
   }
 `;
+
 export const AddToCartButton = styled.button`
   display: inline-block;
   margin-bottom: 0;
@@ -219,5 +227,95 @@ export const ReturnPolicy = styled(ShippingInformation)`
 `;
 
 export const Status = styled.div`
-display: flex;
-`
+  display: flex;
+`;
+
+const ProductPage = ({ match, history }) => {
+  const [qty, setQty] = useState(1);
+  const dispatch = useDispatch();
+
+  const productDetails = useSelector((state) => state.getProductDetails);
+  const { product, loading } = productDetails;
+
+  useEffect(() => {
+    if (product && match.params.id !== product._id) {
+      dispatch(getProductDetails(match.params.id));
+    }
+  }, [dispatch, product, match]);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  const addToCartHandler = () => {
+    dispatch(addToCart(product._id, qty));
+    history.push(`/cart`);
+  };
+
+  return (
+    <div>
+      <GlobalStyle />
+      <FullNavbar />
+      <FirstBigContainer>
+        <ImageContainer>
+          <img src={product.imageUrl} alt="" />
+        </ImageContainer>
+        <span>
+          <h2>{product.name}</h2>
+          <h5>SKU: {product._id}</h5>
+          <Reviews>
+            <Stars />
+            <Stars />
+            <Stars />
+            <Stars />
+            <Stars />
+            <p>(149 reviews)</p>
+          </Reviews>
+          <Price>EUR {product.price}</Price>
+          <Color>
+            <b>Color:</b> valoszinu
+          </Color>
+          <Status>
+            Status: {product.countInStock > 0 ? "In Stock" : "Out of Stock"}
+          </Status>
+
+          <p>Size (EU)</p>
+          <SizeSelector value={qty} onChange={(e) => setQty(e.target.value)}>
+            {new Array(product.countInStock).fill(0).map((item, index) => (
+              <option key={index + 1} value={index + 1}>
+                {index + 1}
+              </option>
+            ))}
+          </SizeSelector>
+          <AddToCartContainer>
+            <AddToCartButton onClick={addToCartHandler}>
+              Add to cart
+            </AddToCartButton>
+            <StyledLikeButton />
+          </AddToCartContainer>
+
+          <ViewCart to="/cart">View Shopping Cart(10)</ViewCart>
+          <NavLink to="/liked"></NavLink>
+          <ShippingInformation>
+            <Truck />
+            <p>
+              Free Shipping Free standard shipping on orders over 29,00€
+              Estimated to be delivered on 26/04/2021 - 29/04/2021.
+            </p>
+          </ShippingInformation>
+          <ReturnPolicy>
+            <Arrow />
+            Return Policy
+            <br /> Learn more
+          </ReturnPolicy>
+        </span>
+      </FirstBigContainer>
+      <SecondBigContainer>
+        <p>{product.description}</p>
+      </SecondBigContainer>
+      <Footer />
+    </div>
+  );
+};
+
+export default ProductPage;

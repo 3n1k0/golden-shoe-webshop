@@ -1,8 +1,8 @@
+import React from "react";
 import styled from "styled-components";
 import { NavLink as Link } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import { GiMagnifyingGlass } from "react-icons/gi";
-
 
 export const Nav = styled.nav`
   background: black;
@@ -12,16 +12,16 @@ export const Nav = styled.nav`
   justify-content: space-evenly;
   font-weight: 700;
   height: 80px;
-
 `;
 
 export const NavLink = styled(Link)`
-  color: gold;
+  color: rgb(203, 193, 169);
   display: flex;
   text-decoration: none;
   cursor: pointer;
   position: absolute;
-  left: 30px;
+  left: 25px;
+  font-size: 30px;
 `;
 
 export const NavIcon = styled.div`
@@ -34,12 +34,10 @@ export const NavIcon = styled.div`
 export const Bars = styled(FaBars)`
   font-size: 2.8em;
 
-
   @media screen and (min-width: 1025px) {
     display: none;
   }
 `;
-
 
 export const MagnifyingGlass = styled(GiMagnifyingGlass)`
   color: black;
@@ -52,7 +50,6 @@ export const MagnifyingGlass = styled(GiMagnifyingGlass)`
   z-index: 1;
 `;
 
-
 export const SearchBar = styled.input`
   width: 250px;
   height: 50px;
@@ -62,8 +59,6 @@ export const SearchBar = styled.input`
   margin: 20px;
   display: flex;
   position: relative;
-  
-
 
   @media screen and (min-width: 1025px) {
     width: 280px;
@@ -85,4 +80,23 @@ export const SearchContainer = styled.div`
   }
 `;
 
+const Navbar = ({ toggle, text }) => {
+  return (
+    <>
+      <Nav>
+        <NavLink to="/">
+          <h1>GS</h1>
+        </NavLink>
+        <SearchContainer>
+          <MagnifyingGlass />
+          <SearchBar placeholder="search articles and ideas" />
+        </SearchContainer>
+        <NavIcon onClick={toggle}>
+          <Bars />
+        </NavIcon>
+      </Nav>
+    </>
+  );
+};
 
+export default Navbar;

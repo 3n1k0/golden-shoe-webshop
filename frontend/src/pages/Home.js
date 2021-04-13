@@ -1,14 +1,13 @@
 import React from "react";
 import { GlobalStyle } from "../config/globalStyles";
-import Products from "../components/Products";
-import Features from "../components/Feature";
-import Footer from "../components/Footer";
+import Products from "../components/ProductsElements";
+import Features from "../components/Feature/FeatureElements";
+import Footer from "../components/FooterElements";
 import styled from "styled-components";
 import ImgBg from "../images/shoe-5.jpeg";
-import FullNavbar from "../components/FullNavbar/index.js";
+import FullNavbar from "../components/FullNavbar.js";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-
 import { getProducts as listProducts } from "../redux/actions/productActions";
 
 export const HeroContainer = styled.div`
@@ -69,13 +68,10 @@ export const HeroBtn = styled.button`
   }
 `;
 
-
-
 function Home() {
   const dispatch = useDispatch();
   const getProducts = useSelector((state) => state.getProducts);
-  const { products, loading, error } = getProducts;
-
+  const { products } = getProducts;
 
   useEffect(() => {
     dispatch(listProducts());
@@ -94,7 +90,6 @@ function Home() {
           </HeroItems>
         </HeroContent>
       </HeroContainer>
-  
       <Products data={products} />
       <Features />
       <Footer />

@@ -1,3 +1,5 @@
+import React from "react";
+import featureImage from "./featured4.jpeg";
 import styled from "styled-components";
 
 export const FeatureContainer = styled.div`
@@ -9,10 +11,10 @@ export const FeatureContainer = styled.div`
   text-align: center;
   padding-bottom: 3rem;
 
-img{
-  width: 100%;
-  object-fit: cover;
-}
+  img {
+    width: 100%;
+    object-fit: cover;
+  }
 
   h1 {
     font-size: clamp(2rem, 5vw, 4rem);
@@ -45,3 +47,15 @@ export const FeatureButton = styled.button`
     color: cornsilk;
   }
 `;
+
+const Features = () => {
+  return (
+    <FeatureContainer>
+      <h1>#OOTD </h1>
+      <img src={featureImage} alt="" />
+      <FeatureButton>Shop the look</FeatureButton>
+    </FeatureContainer>
+  );
+};
+
+export default Features;
