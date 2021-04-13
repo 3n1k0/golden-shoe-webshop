@@ -7,16 +7,16 @@ export const Item = styled.div`
   display: flex;
   background: white;
   border-radius: 2px;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   background: whitesmoke;
 
-p{
-  width: 80%;
-}
+
   select {
     padding: 10px;
     height: 50px;
+    min-width: 60px;
+    max-width: 60px;
   }
 
   img {
@@ -43,8 +43,8 @@ export const DeleteButton = styled.div`
 
 export const Trashcan = styled(FaRegTrashAlt)`
   color: red;
-  padding: 3px;
-  font-size: 1.3em;
+  margin-right: 25px;
+  font-size: 1.2em;
 `;
 
 const CartItem = ({ item, qtyChangeHandler, removeHandler }) => {

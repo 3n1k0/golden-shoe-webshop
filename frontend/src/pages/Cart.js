@@ -12,12 +12,19 @@ import {AddToCartButton} from './ProductPage'
 
 export const CartContainer = styled.div`
   width: 100%;
-  display: grid;
-  place-items: center;
   min-height: 100vh;
+  padding: 100px;
 
   h2 {
     padding: 50px;
+    text-align: center;
+  }
+  img{
+    padding-right: 10px;
+  }
+  p{
+    width: 250px;
+    padding: 5px;
   }
 `;
 
@@ -32,6 +39,7 @@ export const OrderTotal = styled.div`
   p {
     font-weight: bolder;
     padding: 10px;
+    text-align: center;
   }
 `;
 
