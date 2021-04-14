@@ -20,12 +20,9 @@ export const ProductCard = styled.div`
   padding: 10px 15px;
   margin: 10px;
   color: black;
-  min-height: 450px;
-  max-height: 450px;
+  min-height: 470px;
+  max-height: 470px;
 
-  p{
-    height: 30px;
-  }
 `;
 
 export const ProductImage = styled.img`
@@ -71,6 +68,7 @@ const Products = ({ data }) => {
               <ProductInfo>
                 <ProductTitle>{product.name}</ProductTitle>
                 <ProductPrice>{product.price}.-</ProductPrice>
+                <ProductBrand>{product.brand}</ProductBrand>
               </ProductInfo>
             </ProductCard>
           </Link>

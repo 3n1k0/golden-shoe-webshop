@@ -27,6 +27,7 @@ export const Item = styled.div`
   a {
     color: black;
   }
+
 `;
 
 export const DeleteButton = styled.div`

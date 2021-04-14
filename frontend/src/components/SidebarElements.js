@@ -110,7 +110,7 @@ export const SidebarLink = styled(Link)`
   margin: 0;
 
   &:hover {
-    color: black;
+    color: rgb(203, 193, 169);
     transition: 0.2s ease-in-out;
   }
 
