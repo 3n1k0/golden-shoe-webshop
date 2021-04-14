@@ -69,6 +69,7 @@ export const AddToCartButton = styled.button`
   padding: 7px 20px;
   font-size: 15px;
   transition: background 0.2s, border-color, 0.2s, color 0.2s;
+  
 
   &:hover {
   }
@@ -165,6 +166,7 @@ export const AddToCartContainer = styled.div`
   align-items: center;
   justify-content: center;
   width: 120%;
+  margin-bottom: 30px;
 `;
 
 export const Stars = styled(RiStarSFill)`
@@ -266,6 +268,8 @@ const ProductPage = ({ match, history }) => {
     history.push(`/cart`);
   };
 
+
+
   return (
     <>
       <GlobalStyle />
@@ -285,9 +289,12 @@ const ProductPage = ({ match, history }) => {
             <Stars />
             <p>(149 reviews)</p>
           </Reviews>
+          <Status>
+            Status: {product.countInStock > 0 ? "In Stock" : "Out of Stock"}
+          </Status>
           <Price>€ {product.price}</Price>
           <Color>
-            <b>Color:</b> valoszinu
+            <b>Color:</b> {product.color}
           </Color>
           <DropDownContainer>
             <p>Quantity</p>
@@ -314,10 +321,9 @@ const ProductPage = ({ match, history }) => {
             </AddToCartButton>
 
             <StyledLikeButton />
+            <NavLink to="/liked"></NavLink>
           </AddToCartContainer>
 
-          <ViewCart to="/cart">View Shopping Cart(10)</ViewCart>
-          <NavLink to="/liked"></NavLink>
           <ShippingInformation>
             <Truck />
             <p>

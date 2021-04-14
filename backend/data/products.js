@@ -8,7 +8,7 @@ const products = [
     price: 395,
     brand: "Chloé",
     color: "cream, white",
-    countInStock: 10,
+    countInStock: 0,
   },
   {
     name: "Sandro Sandaal van leer met kettingdetail",
