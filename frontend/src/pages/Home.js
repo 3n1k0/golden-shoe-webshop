@@ -13,10 +13,9 @@ import { getProducts as listProducts } from "../redux/actions/productActions";
 export const HeroContainer = styled.div`
   background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.1)),
     url(${ImgBg});
-  background-position: 10% 30%;
+  background-position: 70% 90%;
   height: 100vh;
   width: 100%;
-  background-position: 70% 90%;
   background-size: cover;
   padding: 0px;
 
